@@ -140,7 +140,7 @@ const Hero: React.FC = () => {
               </motion.a>
               
               <motion.a
-                href="/Mahesh_JAVA.pdf"
+                href="/MaheshGouni.pdf"
                 className={`${styles.btn} ${styles.btnOutline}`}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
