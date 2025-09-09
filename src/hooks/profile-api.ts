@@ -6,7 +6,7 @@ export const useStoreContactDetails = () => {
   return useMutation<User, Error, User>({
     mutationFn: async (payload: User) => {
       const { data } = await axios.post<User>(
-        "http://localhost:8080/api/profile/sendEmail",
+        "https://profile-backend-1-6wi0.onrender.com/api/profile/sendEmail",
         payload
       );
       return data;
