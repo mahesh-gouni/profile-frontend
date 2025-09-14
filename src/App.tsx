@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import './App.css';
 import LoadingScreen from './Components/LoadingScreen/LoadingScreen';
 import Header from './Components/Header/Header';
@@ -13,7 +12,6 @@ import Footer from './Components/Footer/Footer';
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
     // Simulate loading time
@@ -24,21 +22,13 @@ const App: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
-  };
-
   if (isLoading) {
     return <LoadingScreen />;
   }
 
   return (
     <div className="App">
-      <Header theme={theme} toggleTheme={toggleTheme} />
+      <Header />
       <main>
         <Hero />
         <About />

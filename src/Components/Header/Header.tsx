@@ -2,12 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import styles from './header.module.css';
 
-interface HeaderProps {
-  theme: 'light' | 'dark';
-  toggleTheme: () => void;
-}
-
-const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
+const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -98,17 +93,8 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             </button>
           </div>
 
-          {/* Actions */}
+          {/* Mobile Menu Toggle Only */}
           <div className={styles.navActions}>
-            <motion.button
-              className={styles.themeToggle}
-              onClick={toggleTheme}
-              whileHover={{ scale: 1.1, rotate: 180 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <i className={theme === 'light' ? 'fas fa-moon' : 'fas fa-sun'}></i>
-            </motion.button>
-
             <button
               className={styles.navToggle}
               onClick={() => setIsMenuOpen(!isMenuOpen)}

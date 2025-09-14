@@ -1,22 +1,32 @@
 /* src/App.css */
 :root {
-  /* Colors */
-  --primary-color: #667eea;
-  --secondary-color: #764ba2;
-  --accent-color: #f093fb;
-  --text-primary: #2d3748;
-  --text-secondary: #4a5568;
-  --text-light: #718096;
-  --white: #ffffff;
-  --gray-50: #f7fafc;
-  --gray-100: #edf2f7;
-  --gray-800: #2d3748;
-  --gray-900: #1a202c;
+  /* GitHub Dark Theme Colors */
+  --primary-color: #0d1117;
+  --secondary-color: #21262d;
+  --accent-color: #58a6ff;
+  --success-color: #3fb950;
+  --warning-color: #d29922;
+  --danger-color: #f85149;
   
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  /* Text Colors */
+  --text-primary: linear-gradient(135deg, #f85149 0%, #d29922 100%);
+  --text-secondary: #8b949e;
+  --text-light: #6e7681;
+  --white: #f0f6fc;
+  
+  /* Background Colors */
+  --bg-primary: #0d1117;
+  --bg-secondary: #21262d;
+  --bg-tertiary: #30363d;
+  --gray-50: #21262d;
+  --gray-100: #30363d;
+  --gray-800: #8b949e;
+  --gray-900: #f0f6fc;
+  
+  /* GitHub Dark Gradients */
+  --gradient-primary: linear-gradient(135deg, #0d1117 0%, #21262d 100%);
+  --gradient-secondary: linear-gradient(135deg, #58a6ff 0%, #3fb950 100%);
+  --gradient-accent: linear-gradient(135deg, #f85149 0%, #d29922 100%);
   
   /* Spacing */
   --section-padding: 100px 0;
@@ -25,7 +35,7 @@
   --border-radius-lg: 20px;
   
   /* Typography */
-  --font-primary: 'Poppins', sans-serif;
+  --font-primary: 'SF Mono', 'Monaco', 'Consolas', 'Courier New', monospace;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -36,27 +46,19 @@
   --font-size-4xl: 2.25rem;
   --font-size-5xl: 3rem;
   
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  /* GitHub Dark Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
   
   /* Transitions */
   --transition-base: all 0.3s ease;
   --transition-slow: all 0.5s ease;
-}
-
-/* Dark Theme Variables */
-[data-theme="dark"] {
-  --text-primary: #f7fafc;
-  --text-secondary: #e2e8f0;
-  --text-light: #cbd5e0;
-  --white: #1a202c;
-  --gray-50: #2d3748;
-  --gray-100: #4a5568;
-  --gray-800: #e2e8f0;
-  --gray-900: #f7fafc;
+  
+  /* Borders */
+  --border-color: rgba(240, 246, 252, 0.1);
+  --border-hover: rgba(88, 166, 255, 0.3);
 }
 
 * {
@@ -70,9 +72,10 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--text-primary);
-  background-color: var(--white);
+  background: var(--gradient-primary);
   overflow-x: hidden;
   transition: var(--transition-base);
+  min-height: 100vh;
 }
 
 .container {
@@ -95,20 +98,49 @@ body {
   border: none;
   position: relative;
   overflow: hidden;
+  font-family: var(--font-primary);
 }
 
 .btn-primary {
   background: var(--gradient-secondary);
-  color: white;
+  color: var(--bg-primary);
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  background: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .btn-outline {
   background: transparent;
-  color: white;
-  border: 2px solid white;
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
+}
+
+/* Utility Classes */
+.text-gradient {
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.border-gradient {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
+              var(--gradient-secondary) border-box;
 }

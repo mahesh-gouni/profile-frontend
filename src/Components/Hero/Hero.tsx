@@ -109,7 +109,7 @@ const Hero: React.FC = () => {
             >
               <div className={styles.stat}>
                 <span className={styles.statNumber}>{counters.accuracy}</span>
-                <span className={styles.statLabel}>% Accuracy in ML Projects</span>
+                <span className={styles.statLabel}>% Accuracy in Full Stack Projects</span>
               </div>
               <div className={styles.stat}>
                 <span className={styles.statNumber}>{counters.transactions.toLocaleString()}+</span>
